@@ -10,12 +10,14 @@ import {
 
 import ActionButton from './ActionButton'
 
+// Define story collection
 const stories =
   storiesOf('Elements/ActionButton', module)
     .addDecorator(withKnobs)
     .addDecorator(Centered)
 
-stories.add('~Knoby ActionButton', () => {
+// Add dynamic knoby component
+stories.add('<ActionButton>', () => {
   const variant = select('Variant', ['primary', 'secondary', 'cta'], 'primary')
   const href = text('Href', 'http://google.com')
   const content = text('Content', 'Go to this place')
@@ -41,18 +43,19 @@ stories.add('~Knoby ActionButton', () => {
   }
 })
 
+// Add predefined components
 stories
-  .add('Primary Actionbutton', () => ({
+  .add('Primary', () => ({
     render: (h) => (
       <ActionButton>Lorem Ipsum</ActionButton>
     )
   }))
-  .add('Secondary ActionButton', () => ({
+  .add('Secondary', () => ({
     render: (h) => (
       <ActionButton variant="secondary">Lorem Ipsum</ActionButton>
     )
   }))
-  .add('Call-to-action ActionButton', () => ({
+  .add('Call-to-action', () => ({
     render: (h) => (
       <ActionButton variant="cta" href="#">Lorem Ipsum</ActionButton>
     )
