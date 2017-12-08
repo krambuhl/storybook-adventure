@@ -1,5 +1,9 @@
 <template>
-  <button class="root" :class="[variant]">
+  <button
+    class="root"
+    :class="[variant]"
+    @click="onClick"
+  >
     <slot />
   </button>
 </template>
@@ -11,6 +15,11 @@ export default {
     variant: {
       type: String,
       default: 'primary'
+    }
+  },
+  methods: {
+    onClick ($ev) {
+      this.$emit('click', $ev)
     }
   }
 }
